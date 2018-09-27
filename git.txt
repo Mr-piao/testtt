@@ -1,0 +1,86 @@
+﻿初次配置
+git config --global user.name '用户'
+git config --global user.email '111121@qq.com'
+
+查看信息
+git config --list
+一、在工作目录中添加。修改文
+二、将需要提交的文件添加到暂存区
+三、将暂存区域的文件提交到git仓库
+1  git add readme.md  将文件添加到暂存区(没有消息就是最好的消息)
+2  git commit -m '你干什么了'
+
+查看状态
+git status
+
+将提交到仓库的文件放到暂存区(拉取最近一次提交到版本库的文件到暂存区 )
+git reset HEAD^表示撤销
+
+从仓库中恢复文件
+git checkout -- fineName
+
+//查看历史提交记录
+git log
+
+//比较工作区和暂存目录
+git diff
+
+//比较两个仓库中的快照
+git diff 快照1 快照2（就是commit后面的ID）
+
+//比较暂存区和git仓库中的
+git diff  --cached 快照id
+
+//1文件刚提交发现 还有没提交的文件，2提交后说明写的不够详细   
+git commit --amend         (找到要修改的地方按i)shift+zz保存退出   linux下vim操作
+
+//恢复删除的文件
+git checkout -- fineName
+
+//如何删除文件
+git rm 文件名
+
+//添加到暂存区后再删除
+git rm -f 文件名      (f暴力删除 暂存区和工作区的文件)
+git rm --cached 文件名(只删除暂存区的文件)
+
+//如何修改指针
+git reset --soft HEAD~
+
+//重命名
+git mv 旧名字 新名字  (不是自己改)
+
+//创建git分支   //像一个文件夹
+git branch 文件名
+
+//创建并进入分支
+
+git checkout -b 分支名
+
+//查看分支 
+git log --decorate 
+//精简版
+git log --decorate --oneline
+
+//以简单图形的形式查看分支情况，看看是否有合并的。
+git log --decorate --all --oneline --graph
+
+//切换分支
+git checkout 分支名
+
+//将指定的分支合并到本分支(前提是之前的分支没有修改过，而且不要有同名文件)
+git merge  分支名
+
+//删除分支名
+git branch -d 分支名
+
+//创建逆名分支  指针  （用于测试）
+git checkout HEAD~  
+然后切换到主分支
+git checkout master  
+
+//checkout 命令主要有两种功能
+
+//将本地的东西提交到git上
+git remote add origin git@github.com:yourName/yourRepo.git
+
