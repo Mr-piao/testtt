@@ -9,7 +9,7 @@ git config --list
 三、将暂存区域的文件提交到git仓库
 1  git add readme.md  将文件添加到暂存区(没有消息就是最好的消息)
 2  git commit -m '你干什么了'
-
+ 
 查看状态
 git status
 
@@ -25,14 +25,77 @@ git log
 //比较工作区和暂存目录
 git diff
 
-//比较两个仓库中的快照
-git diff 快照1 快照2（就是commit后面的ID）
+
 
 //比较暂存区和git仓库中的
-git diff  --cached 快照id
+git diff  --cached 
+
+//比较工作区和git仓库中的
+git diff master
+
+//缓冲区的文件撤回到工作区
+git reset HEAD 文件名
+
+//恢复文件(先从暂存区恢复没有的话才从仓库里恢复)
+git checkout -- fineName
 
 //1文件刚提交发现 还有没提交的文件，2提交后说明写的不够详细   
-git commit --amend         (找到要修改的地方按i)shift+zz保存退出   linux下vim操作
+git commit -m --amend         (找到要修改的地方按i)shift+zz保存退出   linux下vim操作
+
+撤销
+git reset HEAD <file.name>  暂存区到工作区
+git checkout -- <file.name>（暂存或者仓库）区到工作区
+git commit –m ‘说明’—amend
+git log （查看提交的信息）  回车  Q
+git reset --hard HEAD~<num>回退到具体的哪个版本
+
+git remote  （查看远程仓库的名字）
+
+git push origin master  (将本地文件上传到git)
+多人协作解决冲突
+git fetch   （从git中更新最新的代码,并不与现有代码合并）
+Git diff master origin/master  （查看本地与远程的不同）
+Git merge  orgin/master （合并本地与远程）
+git pull（从git中更新最新的代码,且合并）
+
+Git分支
+git branch(查看分支)
+git branch 分支名  （创建分支）eg. Git branch new
+git checkout 分支名 创建分支 
+git checkout -b news2 创建并进入分支
+git branch -d news2 创建并进入分支
+
+-d   name (删除分支)
+-D   name (强制删除分支)
+--merged (查看已合并的分支)
+--no-merged  (查看未合并的分支)
+git checkout
+-b  （创建并进入）
+git merge  (合并分支)
+
+
+  
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //恢复删除的文件
 git checkout -- fineName
