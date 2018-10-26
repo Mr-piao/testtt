@@ -6,7 +6,7 @@ css
 js
 
 js
-	window.onload=function(){
+window.onload=function(){
 		
-	}
+}
 二级标题
